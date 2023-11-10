@@ -1,2 +1,5 @@
 **/node_modules
 **/.env
+**/Focus.json
+**/HomeInfo.json
+**/IBEX35-Chart.json
