@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const apiConnectionCtrl = require('../controllers/test.controller');
+const apiConnectionCtrl = require('../controllers/shareDetailsInfo.controller');
 const homeCtrl = require('../controllers/home.controller');
 
 
