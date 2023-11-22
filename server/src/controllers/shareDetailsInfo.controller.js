@@ -1,7 +1,7 @@
 const axios = require("axios");
 const fs = require('fs/promises');
 
-const shareDetailsInfoModel = require('../models/shareDetailsInfo'); // Importa tu modelo de datos
+const shareDetailsInfoModel = require('../models/shareDetailsInfo.model'); // Importa tu modelo de datos
 const urls = require("../data/urls.json");
 
 const shareDetailsInfoCtrl = {};

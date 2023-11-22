@@ -1,0 +1,560 @@
+[
+    {
+      "name": "ACCIONA",
+      "data": {
+        "address": "CL AVENIDA DE EUROPA 18, 28943 ALCOBENDAS (MADRID)",
+        "listedCapital": 54856653,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.acciona.es",
+        "logoURL": "/IssuerLogos/25220.gif",
+        "companyKey": "25220",
+        "mainShareISIN": "ES0125220311",
+        "name": "ACCIONA,S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "ACTIVIDADES_CONST_Y_SERVICIOS",
+      "data": {
+        "address": "AV/ PIO XII 102, 28036 MADRID",
+        "listedCapital": 139082297,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.grupoacs.com",
+        "logoURL": "/IssuerLogos/67050.gif",
+        "companyKey": "67050",
+        "mainShareISIN": "ES0167050915",
+        "name": "ACS,ACTIVIDADES DE CONST.Y SERVICIOS S.A",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "AMADEUS_IT_GROUP",
+      "data": {
+        "address": "CL SALVADOR MADARIAGA 1, 28027 MADRID",
+        "listedCapital": 4504992.05,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.amadeus.com",
+        "logoURL": "/IssuerLogos/09067.gif",
+        "companyKey": "09067",
+        "mainShareISIN": "ES0109067019",
+        "name": "AMADEUS IT GROUP, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "ARCELORMITTAL",
+      "data": {
+        "address": "BOULEVARD D´AVRANCHES 24 - 26, 01160 LUXEMBOURG (G.-D.OF LUXEMBOURG",
+        "listedCapital": 333740655.62,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://corporate.arcelormittal.com/",
+        "logoURL": "/IssuerLogos/40205.gif",
+        "companyKey": "40205",
+        "mainShareISIN": "LU1598757687",
+        "name": "ARCELORMITTAL, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "BANCO_SANTANDER",
+      "data": {
+        "address": "PO PEREDA 9, 39004 SANTANDER",
+        "listedCapital": 8092073029.5,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.gruposantander.com",
+        "logoURL": "/IssuerLogos/13900.gif",
+        "companyKey": "13900",
+        "mainShareISIN": "ES0113900J37",
+        "name": "BANCO SANTANDER, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "BAANCO_SABADELL",
+      "data": {
+        "address": "AVD/ OSCAR ESPLA 37, 03007 ALICANTE",
+        "listedCapital": 703370587.62,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.grupbancsabadell.com/es/",
+        "logoURL": "/IssuerLogos/13860.gif",
+        "companyKey": "13860",
+        "mainShareISIN": "ES0113860A34",
+        "name": "BANCO DE SABADELL, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "BANKINTER",
+      "data": {
+        "address": "PO CASTELLANA 29, 28046 MADRID",
+        "listedCapital": 269659846.2,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://webcorporativa.bankinter.com",
+        "logoURL": "/IssuerLogos/13679.gif",
+        "companyKey": "13679",
+        "mainShareISIN": "ES0113679I37",
+        "name": "BANKINTER,S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "BBVA",
+      "data": {
+        "address": "PL SAN NICOLAS 4, 48005 BILBAO",
+        "listedCapital": 2923081772.45,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.bbva.com",
+        "logoURL": "/IssuerLogos/13211.gif",
+        "companyKey": "13211",
+        "mainShareISIN": "ES0113211835",
+        "name": "BANCO BILBAO VIZCAYA ARGENTARIA, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "CAIXABANK",
+      "data": {
+        "address": "AV DIAGONAL 621, 08028 BARCELONA",
+        "listedCapital": 7502131619,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.caixabank.es",
+        "logoURL": "/IssuerLogos/40609.gif",
+        "companyKey": "40609",
+        "mainShareISIN": "ES0140609019",
+        "name": "CAIXABANK, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "CELLNEX_TELECOM",
+      "data": {
+        "address": "AV PARC LOGISTIC 12, 08040 BARCELONA",
+        "listedCapital": 176618843.75,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.cellnextelecom.com",
+        "logoURL": "/IssuerLogos/05066.gif",
+        "companyKey": "05066",
+        "mainShareISIN": "ES0105066007",
+        "name": "CELLNEX TELECOM, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "ENDESA",
+      "data": {
+        "address": "CL RIBERA DEL LOIRA 60, 28042 MADRID",
+        "listedCapital": 1270502540.4,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.endesa.com",
+        "logoURL": "/IssuerLogos/30670.gif",
+        "companyKey": "30670",
+        "mainShareISIN": "ES0130670112",
+        "name": "ENDESA, SOCIEDAD ANONIMA",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "FERROVIAL_SE",
+      "data": {
+        "address": "KINGSFORDWEG 151, 01043 AMSTERDAM",
+        "listedCapital": 7406883.65,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "https://www.ferrovial.com/",
+        "logoURL": "/IssuerLogos/15001.gif",
+        "companyKey": "15001",
+        "mainShareISIN": "NL0015001FS8",
+        "name": "FERROVIAL S.E.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "FLUIDRA",
+      "data": {
+        "address": "AV ALCALDE BARNILS 69, 08174 S CUGAT DEL VALLES (BARCELONA)",
+        "listedCapital": 192129070,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.fluidra.com",
+        "logoURL": "/IssuerLogos/37650.gif",
+        "companyKey": "37650",
+        "mainShareISIN": "ES0137650018",
+        "name": "FLUIDRA, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "GRIFOLS_CLASE_A",
+      "data": {
+        "address": "CL JESUS Y MARIA 6, 08022 BARCELONA",
+        "listedCapital": 119603705,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.grifols.com",
+        "logoURL": "/IssuerLogos/71996.gif",
+        "companyKey": "71996",
+        "mainShareISIN": "ES0171996087",
+        "name": "GRIFOLS, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "INTERNATIONAL_CONSOLIDAT_AIRLINES_GROUP",
+      "data": {
+        "address": "CL CAMINO DE LA MUÑOZA, S/N S/N, 28042 MADRID",
+        "listedCapital": 497147601,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "https://www.iairgroup.com/",
+        "logoURL": "/IssuerLogos/77542.gif",
+        "companyKey": "77542",
+        "mainShareISIN": "ES0177542018",
+        "name": "INTERNATIONAL CONSOLIDAT. AIRLINES GROUP",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "IBERDROLA",
+      "data": {
+        "address": "PL EUSKADI 5, 48008 BILBAO",
+        "listedCapital": 4762708500,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.iberdrola.es",
+        "logoURL": "/IssuerLogos/44580.gif",
+        "companyKey": "44580",
+        "mainShareISIN": "ES0144580Y14",
+        "name": "IBERDROLA, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "INDITEX",
+      "data": {
+        "address": "AV DE LA DIPUTACIÓN (ED. INDITEX) S/N, 15142 ARTEIXO (A CORUÑA)",
+        "listedCapital": 93499560,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.inditex.com",
+        "logoURL": "/IssuerLogos/48396.gif",
+        "companyKey": "48396",
+        "mainShareISIN": "ES0148396007",
+        "name": "INDUSTRIA DE DISEÑO TEXTIL, SA \"INDITEX\"",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "INDRA_SERIE_A",
+      "data": {
+        "address": "AV DE BRUSELAS(ARROYO DE LA VEGA) 35, 28108 ALCOBENDAS (MADRID)",
+        "listedCapital": 35330880.4,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "https://www.indracompany.com/",
+        "logoURL": "/IssuerLogos/18594.gif",
+        "companyKey": "18594",
+        "mainShareISIN": "ES0118594417",
+        "name": "INDRA SISTEMAS, S.A., SERIE A",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "INMOBILIARIA_COLONIAL",
+      "data": {
+        "address": "PO/ DE LA CASTELLANA 52, 28046 MADRID",
+        "listedCapital": 1349039092.5,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.inmocolonial.com/",
+        "logoURL": "/IssuerLogos/39140.gif",
+        "companyKey": "39140",
+        "mainShareISIN": "ES0139140174",
+        "name": "INMOBILIARIA COLONIAL SOCIMI, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "LOGISTA",
+      "data": {
+        "address": "CL TRIGO 39, 28911 LEGANES (MADRID)",
+        "listedCapital": 26550000,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.logista.es",
+        "logoURL": "/IssuerLogos/05027.gif",
+        "companyKey": "05027",
+        "mainShareISIN": "ES0105027009",
+        "name": "CIA. DE DIST. INTEG. LOGISTA HOLDINGS",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "MAPFRE",
+      "data": {
+        "address": "CR DE POZUELO DE ALARCÓN 52, 28222 MAJADAHONDA (MADRID)",
+        "listedCapital": 307955327.3,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.mapfregrupo.com",
+        "logoURL": "/IssuerLogos/24244.gif",
+        "companyKey": "24244",
+        "mainShareISIN": "ES0124244E34",
+        "name": "MAPFRE, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "MELIA_HOTELS_INTERNATIONAL",
+      "data": {
+        "address": "CL GREMIO TONELEROS 24, 07009 PALMA DE MALLORCA",
+        "listedCapital": 44080000,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.meliahotelsinternational.com/es/accionistas-e-inversores",
+        "logoURL": "/IssuerLogos/76252.gif",
+        "companyKey": "76252",
+        "mainShareISIN": "ES0176252718",
+        "name": "MELIA HOTELS INTERNATIONAL, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "MERLIN_PROPERTIES",
+      "data": {
+        "address": "PO/ DE LA CASTELLANA 257, 28046 MADRID",
+        "listedCapital": 469770750,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.merlinproperties.com",
+        "logoURL": "/IssuerLogos/05025.gif",
+        "companyKey": "05025",
+        "mainShareISIN": "ES0105025003",
+        "name": "MERLIN PROPERTIES, SOCIMI, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "NATURGY_ENERGY_GROUP",
+      "data": {
+        "address": "AVENIDA DE AMERICA 38, 28028 MADRID",
+        "listedCapital": 969613801,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "https://www.naturgy.com",
+        "logoURL": "/IssuerLogos/16870.gif",
+        "companyKey": "16870",
+        "mainShareISIN": "ES0116870314",
+        "name": "NATURGY ENERGY GROUP, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "REDEIA_CORPORACION",
+      "data": {
+        "address": "CONDE DE LOS GAITANES 177, 28109 ALCOBENDAS-MADRID",
+        "listedCapital": 270540000,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.ree.es",
+        "logoURL": "/IssuerLogos/73093.gif",
+        "companyKey": "73093",
+        "mainShareISIN": "ES0173093024",
+        "name": "REDEIA CORPORACION, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "REPSOL",
+      "data": {
+        "address": "CL MENDEZ ALVARO 44, 28045 MADRID",
+        "listedCapital": 1277396053,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.repsol.es",
+        "logoURL": "/IssuerLogos/73516.gif",
+        "companyKey": "73516",
+        "mainShareISIN": "ES0173516115",
+        "name": "REPSOL, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "LABORATORIOS_ROVI",
+      "data": {
+        "address": "CL JULIAN CAMARILLO 35, 28037 MADRID",
+        "listedCapital": 3240969.42,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.rovi.es/",
+        "logoURL": "/IssuerLogos/57261.gif",
+        "companyKey": "57261",
+        "mainShareISIN": "ES0157261019",
+        "name": "LABORATORIOS FARMACEUTICOS ROVI, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "SACYR",
+      "data": {
+        "address": "C/ CONDESA DE VENADITO 7, 28027 MADRID",
+        "listedCapital": 683083887,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.sacyr.com",
+        "logoURL": "/IssuerLogos/82870.gif",
+        "companyKey": "82870",
+        "mainShareISIN": "ES0182870214",
+        "name": "SACYR, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "SOLARIA",
+      "data": {
+        "address": "CL NUÑEZ DE BALBOA 120, 28006 MADRID",
+        "listedCapital": 1249508.76,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.solariaenergia.com",
+        "logoURL": "/IssuerLogos/65386.gif",
+        "companyKey": "65386",
+        "mainShareISIN": "ES0165386014",
+        "name": "SOLARIA ENERGIA Y MEDIO AMBIENTE, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "TELEFONICA",
+      "data": {
+        "address": "CL GRAN VIA 28, 28013 MADRID",
+        "listedCapital": 5750458145,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://WWW.TELEFONICA.ES",
+        "logoURL": "/IssuerLogos/78430.gif",
+        "companyKey": "78430",
+        "mainShareISIN": "ES0178430E18",
+        "name": "TELEFONICA, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    },
+    {
+      "name": "UNICAJA",
+      "data": {
+        "address": "AVD/ DE ANDALUCIA 10-12 S/N, 29007 MALAGA",
+        "listedCapital": 663708369.75,
+        "minimunCapital": null,
+        "maximunCapital": null,
+        "capitalCurrency": "EUR",
+        "exclusionDate": "",
+        "websiteURL": "http://www.unicajabanco.es",
+        "logoURL": "/IssuerLogos/80907.gif",
+        "companyKey": "80907",
+        "mainShareISIN": "ES0180907000",
+        "name": "UNICAJA BANCO, S.A.",
+        "listed": true,
+        "tradingSystem": 0
+      }
+    }
+  ]

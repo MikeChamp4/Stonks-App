@@ -1,5 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
+const shareDetailsInfoCtrl = require('./controllers/shareDetailsInfo.controller');
+
+// Start the server //
+shareDetailsInfoCtrl.getShareDetailsInfo();
 
 const server = express();
 
@@ -10,8 +14,5 @@ server.use(morgan('dev'));
 // Routes //
 server.use(require('./routes/home.routes'));
 
-// Start the server //
-const shareDetailsInfoCtrl = require('./controllers/shareDetailsInfo.controller');
-shareDetailsInfoCtrl.getShareDetailsInfo();
 
 module.exports = server;

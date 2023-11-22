@@ -5,7 +5,7 @@
     "urlApiCommonHome": "https://api.bolsasymercados.es/Market/locales/es/common.json?4687300",
     "urlApiCommonIBEX35_Chart": "https://api.bolsasymercados.es/Market/locales/es/common.json?4688750",
     "urlApiCommonFocus": "https://api.bolsasymercados.es/Market/locales/es/common.json?4717514",
-
+    
     "urlApiShareDetailsInfo": "https://api.bolsasymercados.es/Market/v1/EQ/CompanyData/AllData?companyKey=",
     "ShareDetailsInfo_CompanyKey": {
       "ACCIONA": "25220",
@@ -22,7 +22,7 @@
       "FERROVIAL_SE": "15001",
       "FLUIDRA": "37650",
       "GRIFOLS_CLASE_A": "71996",
-      "INTERNATIONAL_CONSOLIDAT_AIRLINES_GROUP": "ES0177542018",
+      "INTERNATIONAL_CONSOLIDAT_AIRLINES_GROUP": "77542",
       "IBERDROLA": "44580",
       "INDITEX": "48396",
       "INDRA_SERIE_A": "18594",
