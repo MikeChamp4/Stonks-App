@@ -18,6 +18,27 @@ shareDetailsInfoCtrl.checkIfJsonFileExists = async (filePath) => {
     }
 };
 
+
+
+// shareDetailsInfoCtrl.getJsonFromFile = (filePath) => {
+//     try {
+//         const jsonData = fs.readFile(filePath, 'utf-8');
+//         return JSON.parse(jsonData);
+//     } catch (error) {
+//         console.error('Error reading JSON file:', error);
+//         return null;
+//     }
+// };
+
+// shareDetailsInfoCtrl.getJsonFromFile = (filePath) => {
+//     return fs.readFile(filePath, 'utf-8')
+//         .then(jsonData => JSON.parse(jsonData))
+//         .catch(error => {
+//             console.error('Error reading JSON file:', error);
+//             return null;
+//         });
+// };
+
 shareDetailsInfoCtrl.getJsonFromFile = async (filePath) => {
     try {
         const jsonData = await fs.readFile(filePath, 'utf-8');
@@ -27,6 +48,8 @@ shareDetailsInfoCtrl.getJsonFromFile = async (filePath) => {
         return null;
     }
 };
+
+
 
 shareDetailsInfoCtrl.getShareDetailsInfo = async (req, res) => {
     try {
@@ -43,7 +66,7 @@ shareDetailsInfoCtrl.getShareDetailsInfo = async (req, res) => {
             console.log(`${key}: ${options.url}`);
 
             try {
-                const response = await axios(options);
+                const response =  axios(options);
                 console.log('Waiting 6 seconds...');
 
                 const companyData = {
@@ -61,7 +84,8 @@ shareDetailsInfoCtrl.getShareDetailsInfo = async (req, res) => {
         // Guardar los datos en un archivo
         await fs.writeFile(`./src/data/ShareDetailsInfo.json`, JSON.stringify(data, null, 2));
 
-        res.json({ message: 'Test completed' });
+        //res.json({ message: 'Test completed' });
+        console.log("Message: Test completed");
     } catch (error) {
         console.error(error);
     }

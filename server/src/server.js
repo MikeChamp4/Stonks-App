@@ -3,7 +3,6 @@ const morgan = require('morgan');
 const shareDetailsInfoCtrl = require('./controllers/shareDetailsInfo.controller');
 
 // Start the server //
-shareDetailsInfoCtrl.getShareDetailsInfo();
 
 const server = express();
 

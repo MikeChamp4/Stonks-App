@@ -10,10 +10,7 @@ console.log(MONGODB_HOST);
 const nameCollection = "share_details_info";
 
 mongoose
-  .connect(MONGODB_HOST, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-  })
+  .connect(MONGODB_HOST)
   .then(async () => {
     console.log("DB is connected");
 
@@ -31,23 +28,16 @@ mongoose
     }
 
     // Insertar datos al arrancar la aplicación solo si el archivo JSON existe
-    const jsonFilePath = "./src/data/ShareDetailsInfo.json";
-    const jsonExists = await shareDetailsInfoCtrl.checkIfJsonFileExists(
-      jsonFilePath
-    );
+    //const jsonData = any;
+    await (shareDetailsInfoCtrl.getShareDetailsInfo())
+    const jsonFilePath = "./data/ShareDetailsInfo.json";
 
-    if (jsonExists) {
-      const jsonData = await shareDetailsInfoCtrl.getJsonFromFile(
-        jsonFilePath
-      );
-      console.log(jsonData)
-      await shareDetailsInfoModel.create(jsonData);
-      console.log("Data inserted into the database.");
-    } else {
-      console.log(
-        "No JSON file found. No data inserted into the database."
-      );
-    }
+    const jsonData = shareDetailsInfoCtrl.getJsonFromFile(jsonFilePath);
+    mongoose.connection.collection(nameCollection).insertMany(jsonData);
+
+    console.log(jsonData)
+    console.log("Data inserted into the database.");
+
   })
   .catch((err) => console.error(err));
 
