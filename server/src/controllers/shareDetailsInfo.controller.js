@@ -19,26 +19,6 @@ shareDetailsInfoCtrl.checkIfJsonFileExists = async (filePath) => {
 };
 
 
-
-// shareDetailsInfoCtrl.getJsonFromFile = (filePath) => {
-//     try {
-//         const jsonData = fs.readFile(filePath, 'utf-8');
-//         return JSON.parse(jsonData);
-//     } catch (error) {
-//         console.error('Error reading JSON file:', error);
-//         return null;
-//     }
-// };
-
-// shareDetailsInfoCtrl.getJsonFromFile = (filePath) => {
-//     return fs.readFile(filePath, 'utf-8')
-//         .then(jsonData => JSON.parse(jsonData))
-//         .catch(error => {
-//             console.error('Error reading JSON file:', error);
-//             return null;
-//         });
-// };
-
 shareDetailsInfoCtrl.getJsonFromFile = async (filePath) => {
     try {
         const jsonData = await fs.readFile(filePath, 'utf-8');
@@ -47,9 +27,7 @@ shareDetailsInfoCtrl.getJsonFromFile = async (filePath) => {
         console.error('Error reading JSON file:', error);
         return null;
     }
-};
-
-
+}    
 
 shareDetailsInfoCtrl.getShareDetailsInfo = async (req, res) => {
     try {
@@ -63,29 +41,41 @@ shareDetailsInfoCtrl.getShareDetailsInfo = async (req, res) => {
                 url: urlApiShareDetailsInfo + value
             };
 
-            console.log(`${key}: ${options.url}`);
-
             try {
-                const response =  axios(options);
-                console.log('Waiting 6 seconds...');
+                console.log('Fetching data for', key, '...');
+                console.log(`${key}: ${options.url}`);
+                
+                const response = await axios(options);
 
+                console.log('Waiting 6 seconds...\n');
+            
                 const companyData = {
                     name: key,
                     data: response.data
                 };
 
                 data.push(companyData);
-
             } catch (error) {
-                console.error('Error fetching data for', key);
+                console.error('Error fetching data for', key, error.message);
             }
         }
 
         // Guardar los datos en un archivo
         await fs.writeFile(`./src/data/ShareDetailsInfo.json`, JSON.stringify(data, null, 2));
 
-        //res.json({ message: 'Test completed' });
-        console.log("Message: Test completed");
+        // // Verificar y guardar en la base de datos
+        // const companiesInDatabase = await shareDetailsInfoModel.find({ name: { $in: Object.keys(companiesKey) } });
+
+        // const companiesToInsert = data.filter(companyData => !companiesInDatabase.some(dbCompany => dbCompany.name === companyData.name));
+
+        // if (companiesToInsert.length > 0) {
+        //     await shareDetailsInfoModel.insertMany(companiesToInsert);
+        //     console.log('Data inserted into the database.');
+        // } else {
+        //     console.log('No new data to insert into the database.');
+        // }
+
+        console.log("Message: Test completed\n");
     } catch (error) {
         console.error(error);
     }

@@ -32,7 +32,7 @@ const shareDetailsInfoSchema = new mongoose.Schema({
 
 // Crea el modelo usando el esquema
 const shareDetailsInfoModel = mongoose.model(
-  "shareDetailsInfo",
+  "share_details_info",
   shareDetailsInfoSchema
 );
 
