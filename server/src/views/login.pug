@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    title Login
+  body
+    form(action="/login" method="post")
+      label(for="email") Email:
+      input(type="email" id="email" name="email" required)
+      input(type="submit" value="Submit")

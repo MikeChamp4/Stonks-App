@@ -75,7 +75,7 @@ shareDetailsInfoCtrl.getShareDetailsInfo = async (req, res) => {
         //     console.log('No new data to insert into the database.');
         // }
 
-        console.log("Message: Test completed\n");
+        console.log("Message: Share Details Info Saved\n");
     } catch (error) {
         console.error(error);
     }

@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const shareDetailsInfoModel = require("./models/shareDetailsInfo.model");
-const shareDetailsInfoCtrl = require("./controllers/2shareDetailsInfo.controller");
+const shareDetailsInfoCtrl = require("./controllers/shareDetailsInfo.controller");
 
 const {
   STONKS_APP_MONGODB_HOST,
@@ -17,38 +16,38 @@ mongoose
   .then(async () => {
     console.log("DB is connected\n");
 
-    const collections = await mongoose.connection.db
-      .listCollections()
-      .toArray();
+    // const collections = await mongoose.connection.db
+    //   .listCollections()
+    //   .toArray();
 
-    const collectionExists = collections.some(
-      (collection) => collection.name === nameCollection
-    );
+    // const collectionExists = collections.some(
+    //   (collection) => collection.name === nameCollection
+    // );
 
-    if (!collectionExists) {
-      console.log(`Creating collection: ${nameCollection}`);
-      await mongoose.connection.useDb(nameDatabase).createCollection(nameCollection);
-    }
+    // if (!collectionExists) {
+    //   console.log(`Creating collection: ${nameCollection}`);
+    //   await mongoose.connection.useDb(nameDatabase).createCollection(nameCollection);
+    // }
 
-    await shareDetailsInfoCtrl.getShareDetailsInfo();
-    const jsonFilePath = "./src/data/ShareDetailsInfo.json";
+    // await shareDetailsInfoCtrl.getShareDetailsInfo();
+    // const jsonFilePath = "./src/data/ShareDetailsInfo.json";
 
-    const jsonData = await shareDetailsInfoCtrl.getJsonFromFile(jsonFilePath);
-    const collection = mongoose.connection.useDb(nameDatabase).collection(nameCollection);
+    // const jsonData = await shareDetailsInfoCtrl.getJsonFromFile(jsonFilePath);
+    // const collection = mongoose.connection.useDb(nameDatabase).collection(nameCollection);
     
-    jsonData.forEach(async (item) => {
+    // jsonData.forEach(async (item) => {
 
-      let doc = await collection.findOne({name:item.name});
+    //   let doc = await collection.findOne({name:item.name});
       
-      if(!doc) {
-        await collection.insertOne(item);
-      }else{
-        await collection.updateOne({name:item.name}, {$set: item});
-      }
+    //   if(!doc) {
+    //     await collection.insertOne(item);
+    //   }else{
+    //     await collection.updateOne({name:item.name}, {$set: item});
+    //   }
       
-    });
+    // });
 
-    console.log("Data inserted into the database.");
+    // console.log("Data inserted into the database.");
 
     });
 

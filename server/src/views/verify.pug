@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Verify
+  body
+    form(action="/verify" method="post")
+      label(for="email") Email:
+      input(type="email" id="email" name="email" required)
+      label(for="token") Token:
+      input(type="text" id="token" name="token" required)
+      input(type="submit" value="Submit")
