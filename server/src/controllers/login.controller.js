@@ -1,13 +1,18 @@
+const { EMAIL_SENDER, PASSWORD_SEND_TOKEN } = process.env;
+
 const speakeasy = require("speakeasy");
 const nodemailer = require("nodemailer");
 
-let tempUsers = {};
+let tempUsers = {
+    email: "",
+    token: ""
+};
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "zambranocmiguele@gmail.com",
-        pass: "zzkc wita nkbf prdn"
+        user: EMAIL_SENDER,
+        pass: PASSWORD_SEND_TOKEN,
     },
 });
 
@@ -20,26 +25,18 @@ exports.getVerifyPage = (req, res) => {
 };
 
 exports.postLoginPage = (req, res) => {
-    const email = req.body.email;
-    const secret = speakeasy.generateSecret({ length: 20 });
-    const token = speakeasy.totp({
-        secret: secret.base32,
-        encoding: "base32",
-    });
 
-    tempUsers[email] = { secret: secret.base32 };
+    let token = generateToken();
 
     const mailOptions = {
-        from: "noweheh486@bustayes.com",
-        to: email,
+        from: EMAIL_SENDER,
+        to: req.body.email,
         subject: "Tu código de inicio de sesión",
         text: `Tu código es: ${token}`,
     };
 
-    
-
     transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
+        if(error) {
             console.log(error);
             res.status(500).send(error);
         } else {
@@ -47,23 +44,24 @@ exports.postLoginPage = (req, res) => {
             res.redirect('/verify');
         }
     });
+
 };
 
-exports.verifyToken = (req, res) => {
-    const { token, email } = req.body;
-    const user = tempUsers[email];
+const generateToken = () => {
+    let token = "";
+    token = Math.floor(100000 + Math.random() * 900000).toString();
+    return token;
+}
 
-    if (!user) {
+exports.verifyToken = (req, res) => {
+    const token = req.body.token;
+    const email = req.body.email;
+    const user = tempUsers;
+    console.log("Token: " + token + " Email: " + email);
+    if(!user) {
         res.status(400).send("Usuario no encontrado");
     } else {
-        const verified = speakeasy.totp.verify({
-            secret: user.secret,
-            encoding: "base32",
-            token,
-        });
-
-        if (verified) {
-            // Aquí puedes iniciar la sesión del usuario
+        if(user.token === token) {
             res.status(200).send("Inicio de sesión exitoso");
         } else {
             res.status(400).send("Token inválido");
