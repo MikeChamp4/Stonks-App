@@ -1,11 +1,12 @@
 // Set Enviroment Variables //
 require('dotenv').config();
 
-const server = require('./server.js');
+const app = require('./app.js');
 
 console.log("--- Server ---");
-require('./database.js');
+require('./mongodb.js');
+require('./firebase.js');
 
-server.listen(server.get('port'));
-console.log('Server on port', server.get('port'));
+app.listen(app.get('port'));
+console.log('Server on port', app.get('port'));
 console.log("--------------\n");
