@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node src/index.js",
+    "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
   "author": "",
@@ -17,6 +17,7 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
+    "firebase": "^10.7.1",
     "firebase-admin": "^11.11.1",
     "mongoose": "^8.0.0",
     "morgan": "^1.10.0",
@@ -24,7 +25,8 @@
     "path": "^0.12.7",
     "pug": "^3.0.2",
     "speakeasy": "^2.0.0",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "yarn": "^1.22.21"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

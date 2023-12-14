@@ -22,5 +22,4 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(require('./routes/home.routes'));
 app.use(require('./routes/login.routes'));
 
-
 module.exports = app;
