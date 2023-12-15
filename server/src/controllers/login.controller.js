@@ -1,8 +1,6 @@
 const { EMAIL_SENDER, PASSWORD_SEND_TOKEN } = process.env;
-
 const nodemailer = require("nodemailer");
 const { db } = require("../firebase");
-
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
