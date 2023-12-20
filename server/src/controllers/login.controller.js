@@ -39,16 +39,14 @@ exports.postLoginPage = (req, res) => {
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
-        
-
         if(error) {
-            console.log(error);
-            res.status(500).send(error);
+          console.log(error);
+          res.status(500).json({ error });
         } else {
-            console.log("Email enviado: " + info.response);
-            res.redirect(`/verify?email=${encodeURIComponent(req.body.email)}`);
+          console.log("Email enviado: " + info.response);
+          res.json({ email: req.body.email });
         }
-    });
+      });
 
 };
 

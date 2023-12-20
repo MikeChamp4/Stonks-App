@@ -2,12 +2,16 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 // Start the app //
 const app = express();
 
+//app.use(cors({origin: "http://localhost:4200"}));
+app.use(cors());    
+
 // Enviroment Variables //
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 3000);
 app.use(morgan('dev'));
 
 // Middlewares //
