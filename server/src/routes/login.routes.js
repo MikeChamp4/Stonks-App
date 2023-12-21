@@ -5,8 +5,8 @@ const loginCtrl = require('../controllers/login.controller');
 const router = Router();
 
 router.get('/login', cookieParserMw.saveCookie, loginCtrl.getLoginPage);
-router.get('/verify', cookieParserMw.saveCookie, loginCtrl.getVerifyPage);
+router.get('/login/verify', cookieParserMw.saveCookie, loginCtrl.getVerifyPage);
 router.post('/login', cookieParserMw.saveCookie, loginCtrl.postLoginPage);
-router.post('/verify', cookieParserMw.saveCookie, loginCtrl.verifyToken);
+router.post('/login/verify', cookieParserMw.saveCookie, loginCtrl.verifyToken);
 
 module.exports = router;

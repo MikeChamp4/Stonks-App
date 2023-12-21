@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/services/login/login.service';
 import { NgZone } from '@angular/core';
+
+import { LoginService } from 'src/app/services/login/login.service';
+import { AuthService } from 'src\\app\\services\\auth\\auth.service';
 
 
 @Component({
@@ -22,7 +23,10 @@ export class LoginComponent implements OnInit {
 
   isEmailSent = false;
 
-  constructor(private loginService: LoginService, private router: Router, private cd: ChangeDetectorRef, private ngZone: NgZone) { }
+  constructor(private router: Router,
+              private ngZone: NgZone,
+              private loginService: LoginService,
+              private authService: AuthService) { }
 
   ngOnInit(): void { }
 
@@ -51,8 +55,11 @@ export class LoginComponent implements OnInit {
 
     if (token && email) {
       this.loginService.verifyToken(email, token).subscribe(
-        (res) => {
-          console.log(res);
+        (res: any) => {
+          if (res.message === 'Inicio de sesión exitoso') {
+            this.authService.setLoggedIn(true);
+            this.router.navigate(['/home-page']);
+          }
         },
         (err) => {
           console.log(err);

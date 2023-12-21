@@ -57,21 +57,18 @@ const generateToken = () => {
 }
 
 exports.verifyToken = async (req, res) => {
-
     const doc = await db.collection("users").doc(req.body.email).get();
-
 
     const token = doc.data().token;
     const email = req.body.email;
 
     if(!doc) {
-        return res.status(400).send("Usuario no encontrado");
+        return res.status(400).json({ message: "Usuario no encontrado" });
     }
 
     if(token === req.body.token) {
-        res.status(200).send("Inicio de sesión exitoso");
+        res.status(200).json({ message: "Inicio de sesión exitoso" });
     } else {
-        res.status(400).send("Token inválido");
+        res.status(400).json({ message: "Token inválido" });
     }
-
 };
