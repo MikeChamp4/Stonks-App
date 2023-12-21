@@ -1,10 +1,7 @@
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Stonks app</a>
-    <form class="d-flex">
-      <button class="btn btn-sm btn-outline-secondary me-2" type="button" *ngIf="!loggedIn">Signin</button>
-      <button class="btn btn-sm btn-outline-primary me-2" type="button" routerLink="/login" *ngIf="!loggedIn">Signup</button>
-      <img *ngIf="loggedIn" src="assets/images/user.png" class="user-image">
-    </form>
-  </div>
-</nav>
+<mat-toolbar>
+  <button mat-button ><a href="/">Stonks app</a></button>
+  <div class="spacer"></div>
+  <button mat-button *ngIf="!loggedIn">Signin</button>
+  <button mat-raised-button color="primary" routerLink="/login" *ngIf="!loggedIn">Signup</button>
+  <img *ngIf="loggedIn" src="assets/images/user.png" class="user-image">
+</mat-toolbar>

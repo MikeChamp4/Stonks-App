@@ -6,7 +6,7 @@ import { LoginComponent } from './components/navbar/login/login.component';
 
 // Components //
 const routes: Routes = [
-  { path: 'home-page', component: HomePageComponent },
+  { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginComponent },
 ];
 

@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
         (res: any) => {
           if (res.message === 'Inicio de sesión exitoso') {
             this.authService.setLoggedIn(true);
-            this.router.navigate(['/home-page']);
+            this.router.navigate(['/home']);
           }
         },
         (err) => {

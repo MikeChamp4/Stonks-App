@@ -2,3 +2,11 @@
   height: 40px; /* Ajusta esto a la altura que quieras */
   width: auto; /* Esto mantendrá la relación de aspecto de la imagen */
 }
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  text-decoration: none !important;
+}
