@@ -12,7 +12,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { MaterialModule } from './modules/material/material.module';
-import { PopUpComponent } from './components/pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { PopUpComponent } from './components/pop-up/pop-up.component';
     HomePageComponent,
     NavbarComponent,
     LoginComponent,
-    PopUpComponent,
   ],
   imports: [
     BrowserModule,
