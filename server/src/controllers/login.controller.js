@@ -59,15 +59,15 @@ const generateToken = () => {
 exports.verifyToken = async (req, res) => {
     const doc = await db.collection("users").doc(req.body.email).get();
 
-    const token = doc.data().token;
-    const email = req.body.email;
-
-    if(!doc) {
+    if(!doc.exists) {
         return res.status(400).json({ message: "Usuario no encontrado" });
     }
 
+    const token = doc.data().token;
+    const email = req.body.email;
+
     if(token === req.body.token) {
-        res.status(200).json({ message: "Inicio de sesión exitoso" });
+        res.status(200).json({ message: "Successful login" });
     } else {
         res.status(400).json({ message: "Token inválido" });
     }

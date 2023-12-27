@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
     if (token && email) {
       this.loginService.verifyToken(email, token).subscribe(
         (res: any) => {
-          if (res.message === 'Inicio de sesión exitoso') {
+          if (res.message === 'Successful login') {
             this.authService.setLoggedIn(true);
             this.router.navigate(['/home']);
           }
