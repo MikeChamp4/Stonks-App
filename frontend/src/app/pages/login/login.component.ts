@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     email: new FormControl(''),
   });
 
-  ngOnInit(){}
+  ngOnInit() { }
 
   tokenForm = new FormGroup({
     token: new FormControl(''),
@@ -26,14 +26,13 @@ export class LoginComponent implements OnInit {
   isEmailSent = false;
 
   constructor(private router: Router,
-              private ngZone: NgZone,
-              private loginService: LoginService,
-              private authService: AuthService,
-              ) { }
-
-
+    private ngZone: NgZone,
+    private loginService: LoginService,
+    private authService: AuthService,
+  ) { }
 
   email = new FormControl('', [Validators.required, Validators.email]);
+
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
@@ -43,6 +42,7 @@ export class LoginComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
+  sentEmail: string | null = null;
 
   onSubmit(): void {
     const email = this.loginForm.value.email;
@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
         (res: any) => {
           this.ngZone.run(() => {
             this.isEmailSent = true;
+            this.sentEmail = email;
           });
         },
         (err) => {
