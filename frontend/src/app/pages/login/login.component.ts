@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
-
   getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
@@ -68,10 +67,13 @@ export class LoginComponent implements OnInit {
     const token = this.tokenForm.value.token;
     const email = this.loginForm.value.email;
 
+
     if (token && email) {
       this.loginService.verifyToken(email, token).subscribe(
         (res: any) => {
-          if (res.message === 'Successful login') {
+          localStorage.setItem('token', res.token);
+
+          if (res.message === 'Successful login' && localStorage.getItem('token')) {
             this.authService.setLoggedIn(true);
             this.router.navigate(['/home']);
           }

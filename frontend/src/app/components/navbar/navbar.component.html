@@ -3,5 +3,5 @@
   <div class="spacer"></div>
   <button mat-button *ngIf="!loggedIn">Signin</button>
   <button mat-raised-button color="primary" routerLink="/login" *ngIf="!loggedIn">Signup</button>
-  <img *ngIf="loggedIn" src="assets/images/user.png" class="user-image">
+  <img *ngIf="loggedIn" routerLink="/profile" src="assets/images/user.png" class="user-image">
 </mat-toolbar>

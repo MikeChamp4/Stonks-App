@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
+import { HomePageComponent } from './pages/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 
@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { MaterialModule } from './modules/material/material.module';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MaterialModule } from './modules/material/material.module';
     HomePageComponent,
     NavbarComponent,
     LoginComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

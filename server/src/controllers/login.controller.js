@@ -1,6 +1,7 @@
 const { EMAIL_SENDER, PASSWORD_SEND_TOKEN } = process.env;
 const nodemailer = require("nodemailer");
 const { db } = require("../firebase");
+const { jwt } = require("jsonwebtoken");
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -21,7 +22,6 @@ exports.getVerifyPage = (req, res) => {
 exports.postLoginPage = (req, res) => {
 
     let token = generateToken();
-
 
     try {
         console.log("EMAIL: " + req.body.email + " TOKEN: " + token);
@@ -66,7 +66,10 @@ exports.verifyToken = async (req, res) => {
     const token = doc.data().token;
     const email = req.body.email;
 
+    
     if(token === req.body.token) {
+        //const jwtToken = jwt.sign({ email: user.email }, 'secret-key');
+
         res.status(200).json({ message: "Successful login" });
     } else {
         res.status(400).json({ message: "Token inválido" });

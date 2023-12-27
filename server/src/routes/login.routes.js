@@ -1,12 +1,16 @@
 const { Router } = require('express');
+
+// Middlewares //
 const cookieParserMw = require('../middlewares/cookieParser.middleware');
+const jwtToken = require('../middlewares/jwt.middleware');
+
 const loginCtrl = require('../controllers/login.controller');
 
 const router = Router();
 
-router.get('/login', cookieParserMw.saveCookie, loginCtrl.getLoginPage);
-router.get('/login/verify', cookieParserMw.saveCookie, loginCtrl.getVerifyPage);
-router.post('/login', cookieParserMw.saveCookie, loginCtrl.postLoginPage);
-router.post('/login/verify', cookieParserMw.saveCookie, loginCtrl.verifyToken);
+router.get('/login', loginCtrl.getLoginPage);
+router.get('/login/verify', loginCtrl.getVerifyPage);
+router.post('/login', loginCtrl.postLoginPage);
+router.post('/login/verify', loginCtrl.verifyToken);
 
 module.exports = router;
