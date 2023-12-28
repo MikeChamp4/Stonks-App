@@ -10,7 +10,8 @@ const router = Router();
 
 router.get('/login', loginCtrl.getLoginPage);
 router.get('/login/verify', loginCtrl.getVerifyPage);
-router.post('/login', loginCtrl.postLoginPage);
-router.post('/login/verify', loginCtrl.verifyToken);
+router.post('/login' ,loginCtrl.postLoginPage);
+router.post('/login/verify',loginCtrl.verifyToken);
+router.post('/login/verifyJWT', loginCtrl.verifyJWT);
 
 module.exports = router;

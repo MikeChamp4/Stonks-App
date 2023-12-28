@@ -2035,13 +2035,6 @@ jws@^4.0.0:
     jwa "^2.0.0"
     safe-buffer "^5.0.1"
 
-jwt@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.npmjs.org/jwt/-/jwt-0.2.0.tgz"
-  integrity sha512-+lsJgK3p+dr7yCHO19Ap2uFh+pMSCayPRGjWmf3kYCnYfO+1kqz4DqA8s65HKYIrw5c2NBo+dEvzoZUco09j4Q==
-  dependencies:
-    node-base64 "0.0.1"
-
 kareem@2.5.1:
   version "2.5.1"
   resolved "https://registry.npmjs.org/kareem/-/kareem-2.5.1.tgz"
@@ -2343,11 +2336,6 @@ neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
-
-node-base64@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/node-base64/-/node-base64-0.0.1.tgz"
-  integrity sha512-lzWZQXvK7O1g5aKPCTYQJFGJc3MToEMlGmhXN+2UtkRYQz0OiWHoSMkfqQedUYCwWnixvsauH/IFsaFkrspjYQ==
 
 node-fetch@^2.6.1, node-fetch@^2.6.9:
   version "2.7.0"

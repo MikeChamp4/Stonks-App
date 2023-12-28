@@ -1,4 +1,3 @@
-// login.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -13,10 +12,10 @@ export class LoginService {
   URL_API = "http://localhost:3000/login"
 
   getLogin(email: string) {
-    return this.http.post(this.URL_API, {email});
+    return this.http.post(this.URL_API, {email}, {withCredentials: true});
   }
 
   verifyToken(email: string, token: string) {
-    return this.http.post(this.URL_API + '/verify', {email, token});
+    return this.http.post(this.URL_API + '/verify', {email, token}, {withCredentials: true});
   }
 }

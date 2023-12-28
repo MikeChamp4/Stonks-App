@@ -7,8 +7,12 @@ const cors = require('cors');
 // Start the app //
 const app = express();
 
-//app.use(cors({origin: "http://localhost:4200"}));
-app.use(cors());    
+const corsOptions = {
+    origin: "http://localhost:4200",
+    credentials: true,
+};
+
+app.use(cors(corsOptions));  
 
 // Enviroment Variables //
 app.set('port', process.env.PORT || 3000);

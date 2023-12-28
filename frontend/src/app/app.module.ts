@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './modules/material/material.module';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ToastrModule } from 'ngx-toastr';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
     NavbarComponent,
     LoginComponent,
     ProfileComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
