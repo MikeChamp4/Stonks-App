@@ -4,7 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 @Component({
     selector: 'app-profile',
     templateUrl: './profile.component.html',
-    styleUrls: ['./profile.component.css']
+    styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
 
@@ -19,14 +19,13 @@ export class ProfileComponent {
 
     customerform = this.builder.group({
         name: this.builder.control('', Validators.required),
-        email: this.builder.control('', Validators.compose([Validators.required, Validators.required])),
+        email: this.builder.control('', Validators.required),
         phone: this.builder.control('', Validators.required),
         country: this.builder.control('', Validators.required),
         address: this.builder.control('', Validators.required),
         term: this.builder.control('', Validators.required),
         dob: this.builder.control(new Date(2000, 3, 25)),
         gender: this.builder.control('Male'),
-        status: this.builder.control(true),
     });
 
     SaveCustomer() {

@@ -6,11 +6,12 @@ import { NgZone } from '@angular/core';
 
 import { LoginService } from 'src/app/services/login/login.service';
 import { AuthService } from 'src\\app\\services\\auth\\auth.service';
+import { IndividualConfig, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
     private ngZone: NgZone,
     private loginService: LoginService,
     private authService: AuthService,
+    private toastr: ToastrService
   ) { }
 
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -53,9 +55,12 @@ export class LoginComponent implements OnInit {
             this.isEmailSent = true;
             this.sentEmail = email;
           });
+          //this.toastr.success('Email sent', 'Success');
+          this.showToast('s', 'Email sent');
         },
         (err) => {
           console.log(err);
+          this.showToast('e', 'Email not sent');
         }
       );
     } else {
@@ -75,15 +80,38 @@ export class LoginComponent implements OnInit {
 
           if (res.message === 'Successful login' && localStorage.getItem('token')) {
             this.authService.setLoggedIn(true);
+            this.showToast('s', 'Successful login');
             this.router.navigate(['/home']);
           }
         },
         (err) => {
           console.log(err);
+          this.showToast('e', 'Invalid token');
         }
       );
     } else {
-      console.log('Token or email is undefined or null');
+      console.log('Token is undefined or null');
+    }
+  }
+
+  showToast(type: string, message: string) {
+    const config: Partial<IndividualConfig> = {
+      positionClass: 'toast-bottom-right',
+    };
+
+    switch (type) {
+      case 'w':
+        this.toastr.warning(message, '', config);
+        break;
+      case 's':
+        this.toastr.success(message, '', config);
+        break;
+      case 'e':
+        this.toastr.error(message, '', config);
+        break;
+      default:
+        this.toastr.info(message, '', config);
+        break;
     }
   }
 

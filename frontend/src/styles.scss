@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+// Import Bootstrap functions, variables, and mixins
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+// Import ngx-toastr styles
+@import 'ngx-toastr/toastr';
+// @import 'ngx-toastr/toastr-bs5-alert'; // Uncomment this if you're using Bootstrap 5
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -18,7 +18,7 @@
 
 <mat-card *ngIf="isEmailSent">
   <h1><a href="/" class="">Stonks app</a></h1>
-  <h2>Enter code </h2>
+  <h2>Enter code</h2>
   <h3>Sent to {{sentEmail}}</h3>
   <form [formGroup]="tokenForm" (ngSubmit)="onVerify()">
     <mat-card-content>
