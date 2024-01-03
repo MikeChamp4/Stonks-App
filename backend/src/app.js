@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const path = require('path');
 const cors = require('cors');
 
@@ -21,6 +22,7 @@ app.use(morgan('dev'));
 // Middlewares //
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // View Engine //
 app.set('view engine', 'pug');

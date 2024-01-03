@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
-
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -8,13 +9,15 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class NavbarComponent {
 
+  loggedIn$: Observable<boolean>;
   loggedIn: boolean = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private store: Store<{ loggedIn: boolean }>) {
+    this.loggedIn$ = this.store.select(state => state.loggedIn);
+  }
+  async ngOnInit() {
 
-  ngOnInit() {
-    this.authService.isLoggedIn.subscribe(loggedIn => {
-      this.loggedIn = loggedIn;
-    });
+    const result = await this.authService.isLoggedIn;
+    this.loggedIn = result
   }
 }

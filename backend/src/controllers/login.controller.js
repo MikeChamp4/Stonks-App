@@ -78,20 +78,20 @@ exports.verifyToken = async (req, res) => {
     
 };
 
-exports.verifyJWT = (req, res, next) => {
+exports.verifyJWT = (req, res) => {
     const token = req.cookies.jwt;
-
+    //console.log(token);
     if(!token) {
-        return res.status(401).json({ message: "No hay token" });
+        return res.status(401).json({ message: "token not found" });
     }
 
     jwt.verify(token, 'secret-key', (err, decodedToken) => {
         if(err) {
             console.log(err.message);
-            return res.status(401).json({ message: "Token inválido" });
+            return res.status(401).json({ message: "invalid token" });
         } else {
             console.log(decodedToken);
-            next();
+            res.status(200).json({ message: "valid token" });
         }
     });
 }

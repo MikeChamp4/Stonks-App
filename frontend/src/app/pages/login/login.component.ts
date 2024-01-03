@@ -4,9 +4,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgZone } from '@angular/core';
 
-import { LoginService } from 'src/app/services/login/login.service';
 import { AuthService } from 'src\\app\\services\\auth\\auth.service';
 import { IndividualConfig, ToastrService } from 'ngx-toastr';
+
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -26,12 +28,16 @@ export class LoginComponent implements OnInit {
 
   isEmailSent = false;
 
+  loggedIn$: Observable<boolean>;
+
   constructor(private router: Router,
     private ngZone: NgZone,
-    private loginService: LoginService,
     private authService: AuthService,
-    private toastr: ToastrService
-  ) { }
+    private toastr: ToastrService,
+    private store: Store<{ loggedIn: boolean }>
+  ) {
+    this.loggedIn$ = this.store.select(state => state.loggedIn);
+  }
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
@@ -49,13 +55,12 @@ export class LoginComponent implements OnInit {
     const email = this.loginForm.value.email;
 
     if (email) {
-      this.loginService.getLogin(email).subscribe(
+      this.authService.getLogin(email).subscribe(
         (res: any) => {
           this.ngZone.run(() => {
             this.isEmailSent = true;
             this.sentEmail = email;
           });
-          //this.toastr.success('Email sent', 'Success');
           this.showToast('s', 'Email sent');
         },
         (err) => {
@@ -74,12 +79,14 @@ export class LoginComponent implements OnInit {
 
 
     if (token && email) {
-      this.loginService.verifyToken(email, token).subscribe(
+      this.authService.verifyToken(email, token).subscribe(
         (res: any) => {
           localStorage.setItem('token', res.token);
 
           if (res.message === 'Successful login' && localStorage.getItem('token')) {
             this.authService.setLoggedIn(true);
+            this.store.dispatch({ type: 'setLoggedIn', loggedIn: true });
+            this.ngZone.run(() => this.router.navigateByUrl('/home'));
             this.showToast('s', 'Successful login');
             this.router.navigate(['/home']);
           }
