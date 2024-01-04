@@ -1,4 +1,4 @@
-// reducer.ts
+// reducer.module.ts
 import { createReducer, on } from '@ngrx/store';
 import { setLoggedIn } from './actions.module';
 

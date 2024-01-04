@@ -1,4 +1,6 @@
-// actions.ts
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
-export const setLoggedIn = createAction('[Auth] Set Logged In', (loggedIn: boolean) => ({ loggedIn }));
+export const setLoggedIn = createAction(
+  '[Auth] Set Logged In',
+  props<{ loggedIn: boolean }>()
+);

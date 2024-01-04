@@ -43,7 +43,7 @@ exports.postLoginPage = (req, res) => {
           console.log(error);
           res.status(500).json({ error });
         } else {
-          console.log("Email enviado: " + info.response);
+          //console.log("Email enviado: " + info.response);
           res.json({ email: req.body.email });
         }
       });
@@ -65,7 +65,6 @@ exports.verifyToken = async (req, res) => {
 
     const token = doc.data().token;
     const email = req.body.email;
-
     
     if(token === req.body.token) {
         const jwtToken = jwt.sign({ email: email }, 'secret-key');
