@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store'; // Importamos Store
 import axios from 'axios';
 import { setLoggedIn } from './../../modules/store/actions.module';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private store: Store<{ loggedIn: boolean }>,
-    private cookieService: CookieService
+    private router: Router,
   ) {}
 
   private API_URL = 'http://localhost:3000';
@@ -42,14 +43,8 @@ export class AuthService {
   }
 
   logout() {
-      console.log(this.cookieService.get('jwt'));
-
-      this.http.post(this.API_URL + '/logout', {}).subscribe(() => {
-      this.cookieService.delete('jwt');
+      this.http.post(this.API_URL + '/logout', {}, {withCredentials: true}).subscribe(() => {
+      this.router.navigate(['/home']);
     });
-    // let jwtExists: boolean = this.cookieService.check('jwt');
-    // console.log(`Deleted jwt: ${jwtExists}`);
-
-    // this.cookieService.delete('jwt', '/', 'localhost');
   }
 }
