@@ -6,12 +6,12 @@
         <mat-card-content>
 
             <mat-form-field appearance="outline" class="mat-50">
-                <mat-label>Name</mat-label>
-                <input formControlName="name" matInput>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="mat-50">
                 <mat-label>Email</mat-label>
                 <input matInput formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="mat-50">
+                <mat-label>Name</mat-label>
+                <input formControlName="name" matInput>
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="mat-50">
@@ -59,8 +59,10 @@
         </mat-card-content>
         <mat-card-footer>
         <div style="margin:2%;text-align: right;">
-            <button mat-raised-button type="submit" color="primary">Save</button>
-            <button mat-raised-button color="warn" (click)="clearform()">Clear</button>
+            <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+            <button mat-raised-button color="primary" (click)="resetPassword()">Reset Password</button>
+            <!-- <button mat-raised-button type="submit" color="primary">Save</button>
+            <button mat-raised-button color="warn" (click)="clearform()">Clear</button> -->
         </div>
         </mat-card-footer>
     </mat-card>

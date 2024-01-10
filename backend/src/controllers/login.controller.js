@@ -2,6 +2,7 @@ const { EMAIL_SENDER, PASSWORD_SEND_TOKEN } = process.env;
 const nodemailer = require("nodemailer");
 const { db } = require("../firebase");
 const jwt  = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -24,7 +25,7 @@ exports.postLoginPage = (req, res) => {
     let token = generateToken();
 
     try {
-        console.log("EMAIL: " + req.body.email + " TOKEN: " + token);
+        console.log("EMAIL: " + req.body.email + " | TOKEN: " + token);
         db.collection("users").doc(req.body.email).set({token});
         
     } catch (error) {
@@ -34,10 +35,15 @@ exports.postLoginPage = (req, res) => {
     const mailOptions = {
         from: EMAIL_SENDER,
         to: req.body.email,
-        subject: "Tu código de inicio de sesión",
-        text: `Tu código es: ${token}`,
+        subject: "Your signup verification code",
+        html: `
+            <h1>Welcome to Stonks App</h1>
+            <p>Your verification code is:</p>
+            <h2>${token}</h2>
+            <p>Please enter this code to verify your email address and complete your signup process.</p>
+        `,
     };
-
+    
     transporter.sendMail(mailOptions, (error, info) => {
         if(error) {
           console.log(error);
@@ -46,7 +52,7 @@ exports.postLoginPage = (req, res) => {
           //console.log("Email enviado: " + info.response);
           res.json({ email: req.body.email });
         }
-      });
+    });
 
 };
 
@@ -69,7 +75,8 @@ exports.verifyToken = async (req, res) => {
     if(token === req.body.token) {
         const jwtToken = jwt.sign({ email: email }, 'secret-key');
 
-        res.cookie("jwt", jwtToken, { httpOnly: true, secure: true });
+        //res.cookie("jwt", jwtToken, { httpOnly: true, secure: true });
+        res.cookie("jwt", jwtToken, { httpOnly: true });
         res.status(200).json({ message: "Successful login" });
     } else {
         res.status(400).json({ message: "Token inválido" });
@@ -89,8 +96,42 @@ exports.verifyJWT = (req, res) => {
             console.log(err.message);
             return res.status(401).json({ message: "invalid token" });
         } else {
-            console.log(decodedToken);
+            //console.log(decodedToken);
             res.status(200).json({ message: "valid token" });
         }
     });
 }
+
+const cookie = require('cookie');
+
+exports.logout = (req, res) => {
+    res.clearCookie('jwt');
+    res.json({ message: 'Logged out' });
+};
+
+exports.loginPassword = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const doc = await db.collection("users").doc(email).get();
+
+        if(!doc.exists) {
+            return res.status(400).json({ message: "User not found" });
+        }
+
+        const user = doc.data();
+
+        // Compare the provided password with the stored hash
+        const match = await bcrypt.compare(password, user.password);
+
+        if(!match) {
+            return res.status(400).json({ message: "Invalid password" });
+        }
+
+        // The email and password are correct
+        res.status(200).json({ message: "Login successful" });
+    } catch (error) {
+        console.error("Error logging in:", error);
+        res.status(500).json({ message: "Error logging in" });
+    }
+};
