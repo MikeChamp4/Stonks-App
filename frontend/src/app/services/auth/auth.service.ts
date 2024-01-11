@@ -44,6 +44,7 @@ export class AuthService {
 
   logout() {
       this.http.post(this.API_URL + '/logout', {}, {withCredentials: true}).subscribe(() => {
+      window.location.reload();
       this.router.navigate(['/home']);
     });
   }
