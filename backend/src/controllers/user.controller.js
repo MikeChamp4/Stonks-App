@@ -28,3 +28,23 @@ exports.updatePassword = async (req, res) => {
         res.status(500).json({ message: "Error updating password" });
     }
 };
+
+exports.register = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Store the user in the database
+        await db.collection("users").doc(email).set({
+            password: hashedPassword,
+            // Other user data...
+        });
+
+        res.status(200).json({ message: "User registered successfully" });
+    } catch (error) {
+        console.error("Error registering user:", error);
+        res.status(500).json({ message: "Error registering user" });
+    }
+};

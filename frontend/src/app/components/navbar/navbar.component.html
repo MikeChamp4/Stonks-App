@@ -1,6 +1,6 @@
 <mat-toolbar>
   <!-- <button mat-button ><a href="/">Stonks app</a></button> -->
-  <button mat-button routerLink="/">Stonks App</button>
+  <button class="" mat-button routerLink="/">Stonks App</button>
   <div class="spacer"></div>
   <button mat-button routerLink="/signin" *ngIf="!(loggedIn$ | async)">Sign in</button>
   <button mat-raised-button color="primary" routerLink="/login" *ngIf="!(loggedIn$ | async)">Signup</button>

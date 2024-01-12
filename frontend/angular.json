@@ -32,7 +32,20 @@
 							"src/styles.scss",
 							"@angular/material/prebuilt-themes/indigo-pink.css",
 							"node_modules/bootswatch/dist/morph/bootstrap.min.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeflex/primeflex.css",
+              {
+                "input": "./src/app/themes/theme-lara-light-blue.scss",
+                "bundleName": "lara-light-blue",
+                "inject": false
+              },
+              {
+                "input": "./src/app/themes/theme-lara-dark-blue.scss",
+                "bundleName": "lara-dark-blue",
+                "inject": false
+              }
 						],
 						"scripts": []
 					},

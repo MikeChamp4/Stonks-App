@@ -74,9 +74,8 @@ exports.verifyToken = async (req, res) => {
     
     if(token === req.body.token) {
         const jwtToken = jwt.sign({ email: email }, 'secret-key');
-
-        //res.cookie("jwt", jwtToken, { httpOnly: true, secure: true });
         res.cookie("jwt", jwtToken, { httpOnly: true });
+
         res.status(200).json({ message: "Successful login" });
     } else {
         res.status(400).json({ message: "Token inválido" });
@@ -102,14 +101,12 @@ exports.verifyJWT = (req, res) => {
     });
 }
 
-const cookie = require('cookie');
-
 exports.logout = (req, res) => {
     res.clearCookie('jwt');
     res.json({ message: 'Logged out' });
 };
 
-exports.loginPassword = async (req, res) => {
+exports.password = async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -121,14 +118,28 @@ exports.loginPassword = async (req, res) => {
 
         const user = doc.data();
 
+        // Check if a password has been set
+        if(!user.password) {
+            return res.status(400).json({ message: "Password not set" });
+        }
+
         // Compare the provided password with the stored hash
-        const match = await bcrypt.compare(password, user.password);
+        let match;
+        try {
+            match = await bcrypt.compare(password, user.password);
+        } catch (error) {
+            console.error("Error comparing passwords:", error);
+            return res.status(400).json({ message: "Invalid password hash" });
+        }
 
         if(!match) {
+            console.log("Invalid password");
             return res.status(400).json({ message: "Invalid password" });
         }
 
         // The email and password are correct
+        const jwtToken = jwt.sign({ email: email }, 'secret-key');
+        res.cookie("jwt", jwtToken, { httpOnly: true });
         res.status(200).json({ message: "Login successful" });
     } catch (error) {
         console.error("Error logging in:", error);

@@ -35,9 +35,8 @@ export class AuthService {
   }
 
   checkLoggedIn() {
-    const URL_API = 'http://localhost:3000/login/verifyJWT';
     axios
-      .post(URL_API, {}, { withCredentials: true })
+      .post(this.API_URL + '/login/verifyJWT', {}, { withCredentials: true })
       .then((res) => this.store.dispatch(setLoggedIn({ loggedIn: true })))
       .catch((err) => this.store.dispatch(setLoggedIn({ loggedIn: false })));
   }
@@ -48,4 +47,14 @@ export class AuthService {
       this.router.navigate(['/home']);
     });
   }
+
+  loginPassword(email: string, password: string){
+    return this.http.post(
+      this.API_URL + '/login/password',
+      { email, password },
+      { withCredentials: true },
+    );
+  }
+
+
 }

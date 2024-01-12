@@ -6,7 +6,7 @@
 }
 
 mat-card {
-  min-width: 22rem;
+  min-width: 28rem;
   margin: 0rem auto;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif
 }
@@ -44,8 +44,12 @@ form {
 button {
   border-radius: 5px;
   box-shadow: 0px 1px 5px #888888;
-  margin: 1% 0% 8% 1%;
+  margin: 1% 0% 4% 1%;
   width: 90%;
+}
+
+p {
+  margin: 1% 0% 4% 1%;
 }
 
 
