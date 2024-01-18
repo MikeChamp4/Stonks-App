@@ -16,6 +16,28 @@ exports.getUser = async (req, res) => {
 exports.updatePassword = async (req, res) => {
     const { email, password } = req.body;
 
+    if (password.length < 12) {
+        return res.status(400).json({ message: "Password must be at least 12 characters long" });
+    }
+
+    if (!/[a-z]/.test(password)) {
+        return res.status(400).json({ message: "Password must contain at least one lowercase letter" });
+    }
+
+    if (!/[A-Z]/.test(password)) {
+        return res.status(400).json({ message: "Password must contain at least one uppercase letter" });
+    }
+
+    // Verificar que la contraseña contenga al menos un número
+    if (!/\d/.test(password)) {
+        return res.status(400).json({ message: "Password must contain at least one number" });
+    }
+
+    const specialCharacterRegex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if (!specialCharacterRegex.test(password)) {
+        return res.status(400).json({ message: "Password must contain at least one special character" });
+    }
+
     try {
         // Hash the password before saving it
         const salt = await bcrypt.genSalt(10);

@@ -125,7 +125,7 @@ export class ResetPasswordComponent implements OnInit {
           },
           (err) => {
             console.log(err);
-            this.showToast('e', 'Password not reset');
+            this.showToast('e', err.error.message);
           }
         );
       } else {
