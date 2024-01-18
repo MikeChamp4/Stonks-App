@@ -5,6 +5,7 @@ import { HomePageComponent } from './pages/home/home.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 
 // services //
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent},
   { path: 'login',canActivate: [AuthGuard], component: LoginComponent },
   { path: 'profile', canActivate: [AuthGuard], component: ProfileComponent },
+  { path: 'reset-password', canActivate: [AuthGuard] ,component: ResetPasswordComponent },
 ];
 
 @NgModule({

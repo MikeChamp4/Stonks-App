@@ -56,5 +56,13 @@ export class AuthService {
     );
   }
 
+  resetPassword(email: string, password: string){
+    return this.http.post(
+      this.API_URL + '/user/update-account',
+      { email, password},
+      { withCredentials: true },
+    );
+  }
+
 
 }

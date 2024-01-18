@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-profile',
@@ -12,7 +13,7 @@ export class ProfileComponent {
     countrylist = ['India', 'USA', 'Singapore', 'UK']
     termlist = ['15days', '30days', '45days', '60days']
 
-    constructor(private builder: FormBuilder, private authService: AuthService) {
+    constructor(private builder: FormBuilder, private authService: AuthService, private router: Router) {
 
     }
     ngOnInit(): void { }
@@ -38,7 +39,7 @@ export class ProfileComponent {
     }
 
     resetPassword() {
-      //this.router.navigate(['/reset-password']);
+      this.router.navigate(['/reset-password']);
       console.log("reset password");
     }
 
