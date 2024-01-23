@@ -54,6 +54,12 @@ exports.updatePassword = async (req, res) => {
 exports.register = async (req, res) => {
     const { email, password } = req.body;
 
+    // Primero, verifica si el usuario ya existe y tiene una contraseña
+    const doc = await db.collection("users").doc(email).get();
+    if (doc.exists && doc.data().password) {
+        return res.status(400).json({ message: "this mail is already registred" });
+    }
+
     try {
         // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);

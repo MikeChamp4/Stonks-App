@@ -21,11 +21,14 @@ export class LoginComponent implements OnInit {
     email: new FormControl(''),
   });
 
-  ngOnInit() { }
 
   tokenForm = new FormGroup({
     token: new FormControl(''),
   });
+
+
+  ngOnInit() { }
+
 
   isEmailSent = false;
 
@@ -56,24 +59,35 @@ export class LoginComponent implements OnInit {
     const email = this.loginForm.value.email;
 
     if (email) {
-      this.authService.getLogin(email).subscribe(
-        (res: any) => {
-          this.ngZone.run(() => {
-            this.isEmailSent = true;
-            this.sentEmail = email;
+      this.authService.isEmailRegistred(email).subscribe(isEmailRegistered => {
+        if(!isEmailRegistered){
+          this.authService.emailHasPassword(email).subscribe(emailHasPassword => {
+            if (!emailHasPassword) {
+              this.authService.getLogin(email).subscribe(
+                (res: any) => {
+                  this.ngZone.run(() => {
+                    this.isEmailSent = true;
+                    this.sentEmail = email;
+                  });
+                  this.showToast('s', 'Email sent');
+                },
+                (err) => {
+                  console.log(err);
+                  this.showToast('e', 'Email not sent');
+                }
+              );
+            } else {
+              this.showToast('e', 'Email is already registered');
+            }
           });
-          this.showToast('s', 'Email sent');
-        },
-        (err) => {
-          console.log(err);
-          this.showToast('e', 'Email not sent');
+        } else {
+          this.showToast('e', 'Email is not registered');
         }
-      );
+      });
     } else {
-      console.log('Email is undefined or null');
+      this.showToast('e', 'Email is not defined');
     }
   }
-
 
   onVerify(): void {
     const token = this.tokenForm.value.token;

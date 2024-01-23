@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Store } from '@ngrx/store'; // Importamos Store
-import axios from 'axios';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Store } from '@ngrx/store'; // Importamos Stor
 import { setLoggedIn } from './../../modules/store/actions.module';
-import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { Observable, catchError, map, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -35,10 +34,11 @@ export class AuthService {
   }
 
   checkLoggedIn() {
-    axios
-      .post(this.API_URL + '/login/verifyJWT', {}, { withCredentials: true })
-      .then((res) => this.store.dispatch(setLoggedIn({ loggedIn: true })))
-      .catch((err) => this.store.dispatch(setLoggedIn({ loggedIn: false })));
+    this.http.post(this.API_URL + '/login/verifyJWT', {}, { withCredentials: true })
+      .subscribe(
+        () => this.store.dispatch(setLoggedIn({ loggedIn: true })),
+        () => this.store.dispatch(setLoggedIn({ loggedIn: false }))
+      );
   }
 
   logout() {
@@ -64,5 +64,48 @@ export class AuthService {
     );
   }
 
+  isEmailRegistred(email: string){
+    return this.http.get(this.API_URL + '/user/' + email, { withCredentials: true }).pipe(
+      map((response: any) => {
+        if (response.user) {
+          if(response.user.email === undefined){
+            return true;
+          }
+          return false;
+        } else {
+          return false;
+        }
+      }),
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 400) {
+          return of(false);
+        }
+
+        return throwError(error);
+      })
+    );
+  }
+
+  emailHasPassword(email: string) {
+    return this.http.get(this.API_URL + '/user/' + email, { withCredentials: true }).pipe(
+      map((response: any) => {
+        if (response.user) {
+          if(response.user.password !== undefined){
+            return true;
+          }
+          return false;
+        } else {
+          return false;
+        }
+      }),
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 400) {
+          return of(false);
+        }
+
+        return throwError(error);
+      })
+    );
+  }
 
 }
