@@ -85,7 +85,7 @@ exports.verifyToken = async (req, res) => {
 
 exports.verifyJWT = (req, res) => {
     const token = req.cookies.jwt;
-    //console.log(token);
+
     if(!token) {
         return res.status(401).json({ message: "token not found" });
     }
@@ -95,8 +95,8 @@ exports.verifyJWT = (req, res) => {
             console.log(err.message);
             return res.status(401).json({ message: "invalid token" });
         } else {
-            //console.log(decodedToken);
-            res.status(200).json({ message: "valid token" });
+
+            res.status(200).json({ message: "valid token", email: decodedToken.email});
         }
     });
 }

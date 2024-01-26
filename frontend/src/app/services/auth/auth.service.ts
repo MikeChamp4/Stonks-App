@@ -13,7 +13,7 @@ export class AuthService {
     private http: HttpClient,
     private store: Store<{ loggedIn: boolean }>,
     private router: Router,
-  ) {}
+  ) { }
 
   private API_URL = 'http://localhost:3000';
 
@@ -41,14 +41,18 @@ export class AuthService {
       );
   }
 
+  getEmail() {
+    return this.http.post(this.API_URL + '/login/verifyJWT', {}, { withCredentials: true });
+  }
+
   logout() {
-      this.http.post(this.API_URL + '/logout', {}, {withCredentials: true}).subscribe(() => {
+    this.http.post(this.API_URL + '/logout', {}, { withCredentials: true }).subscribe(() => {
       window.location.reload();
       this.router.navigate(['/home']);
     });
   }
 
-  loginPassword(email: string, password: string){
+  loginPassword(email: string, password: string) {
     return this.http.post(
       this.API_URL + '/login/password',
       { email, password },
@@ -56,19 +60,19 @@ export class AuthService {
     );
   }
 
-  resetPassword(email: string, password: string){
+  resetPassword(email: string, password: string) {
     return this.http.post(
       this.API_URL + '/user/update-account',
-      { email, password},
+      { email, password },
       { withCredentials: true },
     );
   }
 
-  isEmailRegistred(email: string){
+  isEmailRegistred(email: string) {
     return this.http.get(this.API_URL + '/user/' + email, { withCredentials: true }).pipe(
       map((response: any) => {
         if (response.user) {
-          if(response.user.email === undefined){
+          if (response.user.email === undefined) {
             return true;
           }
           return false;
@@ -90,7 +94,7 @@ export class AuthService {
     return this.http.get(this.API_URL + '/user/' + email, { withCredentials: true }).pipe(
       map((response: any) => {
         if (response.user) {
-          if(response.user.password !== undefined){
+          if (response.user.password !== undefined) {
             return true;
           }
           return false;
