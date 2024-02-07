@@ -29,6 +29,7 @@
     "pug": "^3.0.2",
     "speakeasy": "^2.0.0",
     "uuid": "^9.0.1",
+    "ws": "^8.16.0",
     "yarn": "^1.22.21"
   },
   "devDependencies": {

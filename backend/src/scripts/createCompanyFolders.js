@@ -1,5 +1,5 @@
 const fs = require('fs/promises');
-const urls = require("./../data/urls.json");
+const urls = require("./../data/BolsasYMercados/urls.json");
 
 // Supongamos que tu JSON tiene este formato
 const companiesKey = urls.ApiInfo.ShareDetailsInfo_CompanyKey;

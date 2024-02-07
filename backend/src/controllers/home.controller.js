@@ -1,6 +1,6 @@
 const axios = require("axios");
 const fs = require('fs');
-const urls = require("../data/urls.json");
+const urls = require("../data/BolsasYMercados_IBEX35/urls.json");
 
 const hostApi = "www.bolsasymercados.es";
 

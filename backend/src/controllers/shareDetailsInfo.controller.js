@@ -2,7 +2,7 @@ const axios = require("axios");
 const fs = require('fs/promises');
 
 const shareDetailsInfoModel = require('../models/shareDetailsInfo.model'); // Importa tu modelo de datos
-const urls = require("../data/urls.json");
+const urls = require("../data/BolsasYMercados_IBEX35/urls.json");
 
 const shareDetailsInfoCtrl = {};
 

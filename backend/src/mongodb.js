@@ -11,13 +11,13 @@ const MONGODB_HOST = `mongodb://${STONKS_APP_MONGODB_HOST}/${STONKS_APP_MONGODB_
 const nameDatabase = STONKS_APP_MONGODB_DATABASE;
 const nameCollection = STONKS_APP_MONGODB_COLLECTION;
 
-mongoose
-  .connect(MONGODB_HOST)
-  .then(async () => {
+// mongoose
+//   .connect(MONGODB_HOST)
+//   .then(async () => {
 
-    console.log('\n------------ MongoDB -------------');
-    console.log("MongoDB is connected");
-    console.log('-----------------------------------\n');
+//     console.log('\n------------ MongoDB -------------');
+//     console.log("MongoDB is connected");
+//     console.log('-----------------------------------\n');
 
     // const collections = await mongoose.connection.db
     //   .listCollections()
@@ -52,8 +52,8 @@ mongoose
 
     // console.log("Data inserted into the database.");
 
-    });
+//     });
 
-const db = mongoose.connection;
+// const db = mongoose.connection;
 
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
+// db.on("error", console.error.bind(console, "MongoDB connection error:"));
