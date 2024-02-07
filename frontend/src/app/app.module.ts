@@ -19,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './components/footer/footer.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { SigninComponent } from './pages/signin/signin.component';
+// import TrickerWsService from './services/web-sockets/tricker-ws.service';
 
 
 @NgModule({
