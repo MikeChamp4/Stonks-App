@@ -10,7 +10,7 @@ export class TrickerWsService {
   private messages: Subject<any>;
 
   constructor() {
-    this.socket = new WebSocket('ws://localhost:3000');
+    this.socket = new WebSocket('ws://localhost:3001');
     this.messages = new Subject();
 
     this.socket.onmessage = (event) => {

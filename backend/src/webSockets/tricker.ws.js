@@ -2,7 +2,7 @@ const WebSocket = require('ws');
 const fs = require('fs');
 const path = require('path');
 
-function startCryptoCompareStream() {
+function startCryptoCompareStream(wsClient) {
   // this is where you paste your api key
   const apiKey = "1aacecf0423cc97fa52851104822ef5014777b56090a9494d3c686911420ee9b";
   const ccStreamer = new WebSocket('wss://streamer.cryptocompare.com/v2?api_key=' + apiKey);
@@ -47,6 +47,14 @@ function startCryptoCompareStream() {
     //     client.send(JSON.stringify(filteredData));
     //   }
     // });
+
+    // console.log('wsClient:', wsClient);
+    // console.log('wsClient.readyState:', wsClient.readyState);
+
+    if (wsClient.readyState === WebSocket.OPEN) {
+      wsClient.send(JSON.stringify(filteredData));
+    }
+
   });
 
   ccStreamer.on('close', () => {

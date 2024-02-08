@@ -4,9 +4,8 @@ require('dotenv').config();
 const WebSocket = require('ws');
 
 const app = require('./app.js');
-const { connectToCryptoCompare } = require('./websockets/tricker.ws.js');
-const startCryptoCompareStream = require('./websockets/tricker.ws.js');
-const wss = new WebSocket.Server({ port: 3000 });
+const startCryptoCompareStream = require('./webSockets/tricker.ws.js');
+const wss = new WebSocket.Server({ port: 3001 });
 
 const port = app.get('port');
 
