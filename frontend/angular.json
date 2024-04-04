@@ -47,8 +47,12 @@
                 "inject": false
               }
 						],
-						"scripts": []
+						"scripts": [],
+              "allowedCommonJsDependencies": [
+                 "lodash"
+              ]
 					},
+
 					"configurations": {
 						"production": {
 							"budgets": [
