@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const trickerCtrl = require('../controllers/tricker.controller');
+const trickerWs = require('../webSockets/tricker.ws.js');
 
-router.ws('/', trickerCtrl.startWebSocket);
+router.ws('/', trickerWs.createWebSocket);
 
 module.exports = router;
