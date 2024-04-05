@@ -4,7 +4,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { TrickerWsService }  from '../../services/web-sockets/tricker-ws.service';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { ChangeDetectorRef } from '@angular/core';
-import { createClient } from 'redis';
 
 @Component({
   selector: 'app-home-page',
@@ -21,7 +20,6 @@ export class HomePageComponent implements AfterViewInit {
     'high24hour',
     'low24hour',
     'volume24hour',
-    // 'volume24hourto'
   ];
 
   ELEMENT_DATA : CryptoCurrency[] = [
@@ -37,43 +35,11 @@ export class HomePageComponent implements AfterViewInit {
   constructor(private _liveAnnouncer: LiveAnnouncer, private trickerWs: TrickerWsService, private cd: ChangeDetectorRef ) {}
 
   ngOnInit(): void {
-    // this.trickerWs.getMessages().subscribe((message: { FROMSYMBOL: any; PRICE: any; OPEN24HOUR: any; HIGH24HOUR: any; LOW24HOUR: any; VOLUME24HOUR: any; VOLUME24HOURTO: any; }) => {
-    //   console.log('message', message);
-    //   // Actualiza la fuente de datos de la tabla con los nuevos datos
-    //   this.ELEMENT_DATA = [...this.ELEMENT_DATA, {
-    //     position: this.ELEMENT_DATA.length + 1,
-    //     fromsymbol: message.FROMSYMBOL,
-    //     price: message.PRICE,
-    //     open24hour: message.OPEN24HOUR,
-    //     high24hour: message.HIGH24HOUR,
-    //     low24hour: message.LOW24HOUR,
-    //     volume24hour: message.VOLUME24HOUR,
-    //     volume24hourto: message.VOLUME24HOURTO
-    //   }];
-    //   this.dataSource.data = this.ELEMENT_DATA;
 
-    //   // Detecta los cambios y actualiza la vista
-    //   this.cd.detectChanges();
-    // });
   }
 
   async ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    const client = createClient()
-    .on('error', err => console.log('Redis Client Error', err));
-    await client.connect();
 
-    // await client.set('mykey', 'Hello from node redis');
-    // const myKeyValue = await client.get('mykey');
-    // console.log(myKeyValue);
-
-    // const client = await createClient()
-    // .on('error', err => console.log('Redis Client Error', err))
-    // .connect();
-    // await client.set('miguel', 'BTC'  )
-    // const value = await client.get('miguel')
-
-    // console.log('value', value);
 
   }
 
