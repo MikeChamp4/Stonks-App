@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { TrickerWsService }  from '../../services/web-sockets/tricker-ws.service';
+import { TrickerWsService } from '../../services/web-sockets/tricker-ws.service';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { ChangeDetectorRef } from '@angular/core';
 
@@ -31,11 +31,14 @@ export class HomePageComponent implements AfterViewInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-
   constructor(private _liveAnnouncer: LiveAnnouncer, private trickerWs: TrickerWsService, private cd: ChangeDetectorRef ) {}
 
   ngOnInit(): void {
-
+    // Escucha los datos del servidor WebSocket
+    this.trickerWs.listenForData((data) => {
+      console.log('Datos recibidos:', data);
+      // Actualiza la interfaz de usuario con los datos (por ejemplo, muestra en una tabla o gráfico)
+    });
   }
 
   async ngAfterViewInit() {
@@ -43,7 +46,6 @@ export class HomePageComponent implements AfterViewInit {
 
   }
 
-  /** Announce the change in sort state for assistive technology. */
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
