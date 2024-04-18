@@ -13,38 +13,56 @@ import { ChangeDetectorRef } from '@angular/core';
 export class HomePageComponent implements AfterViewInit {
 
   displayedColumns: string[] = [
-    'position',
-    'fromsymbol',
-    'price',
-    'open24hour',
-    'high24hour',
-    'low24hour',
-    'volume24hour',
+    'FROMSYMBOL',
+    'TOSYMBOL',
+    'PRICE',
+    'OPEN24HOUR',
+    'HIGH24HOUR',
+    'LOW24HOUR',
+    'VOLUME24HOUR',
+    'VOLUME24HOURTO'
   ];
 
-  ELEMENT_DATA : CryptoCurrency[] = [
-    { position: 1, fromsymbol: 'BTC', price: 43058.91, open24hour: 42104.33, high24hour: 43407.74, low24hour: 41938.92, volume24hour: 9303.87844941, volume24hourto: 398760129.17096734 },
-  ];
+  ELEMENT_DATA: CryptoCurrency = {
+    FROMSYMBOL: '',
+    TOSYMBOL: '',
+    PRICE: 0,
+    OPEN24HOUR: 0,
+    HIGH24HOUR: 0,
+    LOW24HOUR: 0,
+    VOLUME24HOUR: 0,
+    VOLUME24HOURTO: 0
+  };
+    //{ position: 1, fromsymbol: 'BTC', price: 43058.91, open24hour: 42104.33, high24hour: 43407.74, low24hour: 41938.92, volume24hour: 9303.87844941, volume24hourto: 398760129.17096734 },
 
-  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+  // dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
   @ViewChild(MatSort)
   sort!: MatSort;
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private trickerWs: TrickerWsService, private cd: ChangeDetectorRef ) {}
+  ngAfterViewInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
-  ngOnInit(): void {
-    // Escucha los datos del servidor WebSocket
-    this.trickerWs.listenForData((data) => {
-      console.log('Datos recibidos:', data);
-      // Actualiza la interfaz de usuario con los datos (por ejemplo, muestra en una tabla o gráfico)
+  ngOnInit() {
+    this.trickerWs.listenForMessages((data: CryptoCurrency) => {
+
+      this.ELEMENT_DATA = data;
+      // this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+      this.cd.detectChanges();
+      console.log(this.ELEMENT_DATA)
     });
   }
 
-  async ngAfterViewInit() {
+  // ngOnInit() {
+  //   this.trickerWs.listenForMessages();
+  //   //this.trickerWs.sendMessage({ message: 'Hello from Angular!' });
+  // }
 
-
-  }
+  // async ngAfterViewInit() {
+  //   this.dataSource.sort = this.sort;
+  // }
 
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
@@ -56,14 +74,14 @@ export class HomePageComponent implements AfterViewInit {
 }
 
 export interface CryptoCurrency {
-  position: number;
-  fromsymbol: string | "";
-  price: number | 0;
-  open24hour: number | 0;
-  high24hour: number | 0;
-  low24hour: number | 0;
-  volume24hour: number | 0;
-  volume24hourto: number | 0;
+  FROMSYMBOL: string | "";
+  TOSYMBOL: string | "";
+  PRICE: number | 0;
+  OPEN24HOUR: number | 0;
+  HIGH24HOUR: number | 0;
+  LOW24HOUR: number | 0;
+  VOLUME24HOUR: number | 0;
+  VOLUME24HOURTO: number | 0;
 }
 
 

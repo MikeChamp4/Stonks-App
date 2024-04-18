@@ -18,7 +18,8 @@ exports.createWebSocket = async () => {
     connection.on("open", function open() {
       const subRequest = {
         action: "SubAdd",
-        subs: ["2~Coinbase~BTC~USD", "2~Coinbase~ETH~USD"],
+        //subs: ["2~Coinbase~BTC~USD", "2~Coinbase~ETH~USD"],
+        subs: ["2~Coinbase~BTC~USD"],
       };
       connection.send(JSON.stringify(subRequest));
     });

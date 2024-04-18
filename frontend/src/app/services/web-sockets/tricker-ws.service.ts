@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { webSocket } from "rxjs/webSocket";
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,21 +10,27 @@ export class TrickerWsService {
 
   constructor() {
     // Establece la conexión WebSocket con el servidor
-    this.socket = new WebSocket('ws://localhost:3001'); // Asegúrate de que la URL coincida con tu servidor
+    this.socket = new WebSocket('ws://localhost:3030'); // Asegúrate de que la URL coincida con tu servidor
   }
 
-  // Escucha los mensajes del servidor
-  public listenForData(callback: (data: any) => void): void {
-    this.socket.addEventListener('message', (event) => {
-      const data = JSON.parse(event.data);
-      console.log(data) // Llama a la función de devolución de llamada con los datos recibidos
+
+  // public listenForMessages(): void {
+  //   this.socket.onmessage = (message) => {
+  //     const data = JSON.parse(message.data);
+  //     console.log(data);
+  //   };
+  // }
+
+  public listenForMessages(callback: (data: any) => void): void {
+    this.socket.onmessage = (message) => {
+      const data = JSON.parse(message.data);
       callback(data);
-    });
+    };
   }
 
-  // Envía datos al servidor (si es necesario)
-  public sendData(data: any): void {
+  public sendMessage(data: any): void {
     this.socket.send(JSON.stringify(data));
   }
-  //
+
+
 }
