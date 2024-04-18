@@ -23,7 +23,18 @@ export class HomePageComponent implements AfterViewInit {
     'VOLUME24HOURTO'
   ];
 
-  ELEMENT_DATA: CryptoCurrency = {
+  // ELEMENT_DATA: CryptoCurrency = {
+  //   FROMSYMBOL: '',
+  //   TOSYMBOL: '',
+  //   PRICE: 0,
+  //   OPEN24HOUR: 0,
+  //   HIGH24HOUR: 0,
+  //   LOW24HOUR: 0,
+  //   VOLUME24HOUR: 0,
+  //   VOLUME24HOURTO: 0
+  // };
+
+  ELEMENT_DATA: CryptoCurrency  [] = [{
     FROMSYMBOL: '',
     TOSYMBOL: '',
     PRICE: 0,
@@ -32,37 +43,32 @@ export class HomePageComponent implements AfterViewInit {
     LOW24HOUR: 0,
     VOLUME24HOUR: 0,
     VOLUME24HOURTO: 0
-  };
-    //{ position: 1, fromsymbol: 'BTC', price: 43058.91, open24hour: 42104.33, high24hour: 43407.74, low24hour: 41938.92, volume24hour: 9303.87844941, volume24hourto: 398760129.17096734 },
-
-  // dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+  }];
+  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
   @ViewChild(MatSort)
   sort!: MatSort;
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private trickerWs: TrickerWsService, private cd: ChangeDetectorRef ) {}
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
-  ngOnInit() {
-    this.trickerWs.listenForMessages((data: CryptoCurrency) => {
-
-      this.ELEMENT_DATA = data;
-      // this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-      this.cd.detectChanges();
-      console.log(this.ELEMENT_DATA)
-    });
-  }
 
   // ngOnInit() {
-  //   this.trickerWs.listenForMessages();
-  //   //this.trickerWs.sendMessage({ message: 'Hello from Angular!' });
+  //   this.trickerWs.listenForMessages((data: CryptoCurrency) => {
+
+  //     this.ELEMENT_DATA = data;
+  //     // this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+  //     this.cd.detectChanges();
+  //     console.log(this.ELEMENT_DATA)
+  //   });
   // }
 
-  // async ngAfterViewInit() {
-  //   this.dataSource.sort = this.sort;
-  // }
+  ngOnInit() {
+    this.trickerWs.listenForMessages();
+    this.trickerWs.sendMessage({ message: 'Hello from Angular!' });
+  }
+
+  async ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
 
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {

@@ -14,7 +14,7 @@
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by fromsymbol">
       Name
     </th>
-    <td mat-cell *matCellDef="let element"> {{ELEMENT_DATA.FROMSYMBOL}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.FROMSYMBOL}} </td>
   </ng-container>
 
   <!-- FromSymbol Column -->
@@ -22,7 +22,7 @@
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by tosysymbol">
       Currency
     </th>
-    <td mat-cell *matCellDef="let element"> {{ELEMENT_DATA.TOSYMBOL}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.TOSYMBOL}} </td>
   </ng-container>
 
   <!-- Price Column -->
@@ -30,66 +30,45 @@
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by price">
       Price
     </th>
-    <td mat-cell *matCellDef="let element"> {{ELEMENT_DATA.PRICE}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.PRICE}} </td>
   </ng-container>
 
   <ng-container matColumnDef="OPEN24HOUR">
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by open24hour">
       % Diff.
     </th>
-    <td mat-cell *matCellDef="let element"> {{ELEMENT_DATA.OPEN24HOUR}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.OPEN24HOUR}} </td>
   </ng-container>
 
   <ng-container matColumnDef="HIGH24HOUR">
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by high24hour">
       High 24h
     </th>
-    <td mat-cell *matCellDef="let element"> {{ELEMENT_DATA.HIGH24HOUR}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.HIGH24HOUR}} </td>
   </ng-container>
 
   <ng-container matColumnDef="LOW24HOUR">
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by low24hour">
       Low 24h
     </th>
-    <td mat-cell *matCellDef="let element"> {{ELEMENT_DATA.LOW24HOUR}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.LOW24HOUR}} </td>
   </ng-container>
 
   <ng-container matColumnDef="VOLUME24HOUR">
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by low24hour">
       Volume 24h
     </th>
-    <td mat-cell *matCellDef="let element"> {{ELEMENT_DATA.VOLUME24HOUR}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.VOLUME24HOUR}} </td>
   </ng-container>
 
   <ng-container matColumnDef="VOLUME24HOURTO">
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by volume24hourto">
       Volume24hourto
     </th>
-    <td mat-cell *matCellDef="let element"> {{ELEMENT_DATA.VOLUME24HOURTO}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.VOLUME24HOURTO}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   <hr/>
-  <!-- <table>
-    <thead>
-      <tr>
-        <td>Name</td>
-        <td>Price</td>
-        <td>Change</td>
-        <td>High</td>
-        <td>Low</td>
-        <td>Volume</td>
-
-      </tr>
-    </thead>
-    <tr *ngIf="ELEMENT_DATA">
-      <td>{{ELEMENT_DATA.FROMSYMBOL}}</td>
-      <td>{{ELEMENT_DATA.PRICE}}</td>
-      <td>{{ELEMENT_DATA.OPEN24HOUR}}</td>
-      <td>{{ELEMENT_DATA.HIGH24HOUR}}</td>
-      <td>{{ELEMENT_DATA.LOW24HOUR}}</td>
-      <td>{{ELEMENT_DATA.VOLUME24HOUR}}</td>
-    </tr>
-  </table> -->
 </table>

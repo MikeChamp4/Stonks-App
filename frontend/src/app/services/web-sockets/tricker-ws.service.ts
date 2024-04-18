@@ -14,19 +14,19 @@ export class TrickerWsService {
   }
 
 
-  // public listenForMessages(): void {
-  //   this.socket.onmessage = (message) => {
-  //     const data = JSON.parse(message.data);
-  //     console.log(data);
-  //   };
-  // }
-
-  public listenForMessages(callback: (data: any) => void): void {
+  public listenForMessages(): void {
     this.socket.onmessage = (message) => {
       const data = JSON.parse(message.data);
-      callback(data);
+      console.log(data);
     };
   }
+
+  // public listenForMessages(callback: (data: any) => void): void {
+  //   this.socket.onmessage = (message) => {
+  //     const data = JSON.parse(message.data);
+  //     callback(data);
+  //   };
+  // }
 
   public sendMessage(data: any): void {
     this.socket.send(JSON.stringify(data));
