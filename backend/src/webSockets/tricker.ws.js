@@ -10,7 +10,7 @@ async function startCryptoCompareStream(wsClient) {
   
   //client = await createClient().connect();
   // this is where you paste your api key
-  const apiKey = "1aacecf0423cc97fa52851104822ef5014777b56090a9494d3c686911420ee9b";
+  const apiKey = process.env.CRYPTOCOMPARE_API_KEY;
   const ccStreamer = new WebSocket('wss://streamer.cryptocompare.com/v2?api_key=' + apiKey);
 
   // Almacena todos los mensajes en una matriz

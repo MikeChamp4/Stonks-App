@@ -73,7 +73,7 @@ exports.verifyToken = async (req, res) => {
     const email = req.body.email;
     
     if(token === req.body.token) {
-        const jwtToken = jwt.sign({ email: email }, 'secret-key');
+        const jwtToken = jwt.sign({ email: email }, process.env.JWT_SECRET);
         res.cookie("jwt", jwtToken, { httpOnly: true });
 
         res.status(200).json({ message: "Successful login" });
@@ -90,7 +90,7 @@ exports.verifyJWT = (req, res) => {
         return res.status(401).json({ message: "token not found" });
     }
 
-    jwt.verify(token, 'secret-key', (err, decodedToken) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
         if(err) {
             console.log(err.message);
             return res.status(401).json({ message: "invalid token" });
@@ -138,7 +138,7 @@ exports.password = async (req, res) => {
         }
 
         // The email and password are correct
-        const jwtToken = jwt.sign({ email: email }, 'secret-key');
+        const jwtToken = jwt.sign({ email: email }, process.env.JWT_SECRET);
         res.cookie("jwt", jwtToken, { httpOnly: true });
         res.status(200).json({ message: "Login successful" });
     } catch (error) {
